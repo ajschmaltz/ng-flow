@@ -1,9 +1,7 @@
 What is ng-flow?
 ============
 
-Flow.js extensions for angular.js framework, no 3rd party JS dependencies required!
-
-ng-flow extension is based on [Flow.js](https://github.com/flowjs/flow.js) library.
+ng-flow offers Flow.js extensions for the angular.js framework, no 3rd party JS dependencies required!
 
 Demo: http://flowjs.github.io/ng-flow/
 
@@ -36,32 +34,33 @@ they are also concatenated with core flow.js library.
 How can I use it?
 ============
 
-First of all wrap places there you are going to use Flow.js
+First, initiate a section for flow.js
 ````html
 <div flow-init>
     ... other flow directives goes here ...
 </div>
 ````
 
-This directive is going to add $flow variable to current scope.
-Also directive can be nested, because `$flow` variable is going to be overridden.
+This directive will add $flow to the current scope.
+The directive can be nested because `$flow` will be overridden.
+
 `$flow` is instance of [Flow](https://github.com/flowjs/flow.js#flow).
 
 
-Secondly you need to assign some upload buttons:
+Second, assign upload buttons:
 ````html
 <input type="file" flow-btn />
 <input type="file" flow-btn flow-directory />
-  Input OR Other element as upload button
+Input OR Other element as upload button
 <span flow-btn>Upload File</span>
 ````
 
-First button is for normal uploads and second is for directory uploads.
+Note: flow-directory can be added for directory uploads 
 Note: avoid using `<a>` and `<button>` tags as file upload buttons, use `<span>` instead.
 
 
-Now you need to display uploaded files, all you need to do is to loop files array.
-Files array is attached to flow object named `$flow`.
+To display the uploaded files, loop the files array.
+Files is an attribute of the `$flow` object.
 ````html
 <tr ng-repeat="file in $flow.files">
     <td>{{$index+1}}</td>
